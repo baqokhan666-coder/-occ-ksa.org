@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overseas Chitrali's Community (OCC) – Kingdom of Saudi Arabia | Official Website</title>
+<meta name="description" content="Official website of Overseas Chitrali's Community (OCC), Kingdom of Saudi Arabia – a self-help based welfare organization of the Chitrali diaspora in KSA. Established May 2023.">
+<style>
+  :root{
+    --primary:#0b5d3b; --primary-dark:#073d27; --accent:#c9a227;
+    --ink:#1c2530; --muted:#5b6672; --bg:#f7f9f8; --white:#ffffff;
+    --radius:14px; --shadow:0 6px 24px rgba(11,93,59,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;}
+  .container{max-width:1140px;margin:0 auto;padding:0 20px;}
+
+  .topbar{background:var(--primary-dark);color:#e9f3ee;font-size:.85rem;padding:8px 0;}
+  .topbar .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:#ffe9a8;text-decoration:none;}
+  .topbar a:hover{text-decoration:underline;}
+
+  header{background:var(--white);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand .logo{width:52px;height:52px;flex-shrink:0;}
+  .brand-text h1{font-size:1.05rem;color:var(--primary-dark);line-height:1.25;}
+  .brand-text span{font-size:.72rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
+  nav ul{display:flex;list-style:none;gap:4px;flex-wrap:wrap;}
+  nav a{display:block;padding:9px 12px;color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:600;border-radius:8px;transition:background .2s,color .2s;}
+  nav a:hover{background:var(--primary);color:#fff;}
+  .menu-toggle{display:none;background:var(--primary);color:#fff;border:0;padding:9px 13px;border-radius:8px;font-size:1rem;cursor:pointer;}
+  @media(max-width:980px){
+    nav ul{display:none;flex-direction:column;width:100%;background:#fff;padding:10px;box-shadow:var(--shadow);}
+    nav ul.open{display:flex;}
+    .menu-toggle{display:block;}
+  }
+
+  .hero{background:linear-gradient(135deg,rgba(7,61,39,.94),rgba(11,93,59,.85));color:#fff;padding:92px 0;text-align:center;}
+  .hero .badge{display:inline-block;background:rgba(255,233,168,.15);border:1px solid var(--accent);color:#ffe9a8;
+        padding:6px 18px;border-radius:999px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;}
+  .hero h2{font-size:clamp(1.7rem,4vw,2.7rem);margin-bottom:14px;line-height:1.25;}
+  .hero p{max-width:780px;margin:0 auto 30px;font-size:1.06rem;color:#e6f2ec;}
+  .btn{display:inline-block;padding:13px 30px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s,box-shadow .15s;}
+  .btn-gold{background:var(--accent);color:#3a2e05;}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25);}
+  .btn-outline{border:2px solid #fff;color:#fff;margin-left:10px;}
+  .btn-outline:hover{background:#fff;color:var(--primary-dark);}
+  @media(max-width:560px){.btn-outline{margin-left:0;margin-top:12px;}}
+
+  section{padding:72px 0;}
+  .section-alt{background:#fff;}
+  .sec-title{text-align:center;margin-bottom:44px;}
+  .sec-title .kicker{color:var(--primary);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem;}
+  .sec-title h3{font-size:clamp(1.5rem,3vw,2.1rem);color:var(--primary-dark);margin-top:6px;}
+  .sec-title .rule{width:64px;height:4px;background:var(--accent);margin:14px auto 0;border-radius:2px;}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
+  @media(max-width:900px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+  .card{background:#fff;border:1px solid #e5ece8;border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);transition:transform .2s;}
+  .card:hover{transform:translateY(-4px);}
+  .card .icon{width:54px;height:54px;border-radius:12px;background:var(--primary);color:#ffe9a8;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;}
+  .card h4{color:var(--primary-dark);margin-bottom:10px;font-size:1.12rem;}
+  .card p{color:var(--muted);font-size:.95rem;}
+
+  .about-text p{color:var(--muted);margin-bottom:16px;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;text-align:center;}
+  .stat{background:var(--primary);color:#fff;border-radius:var(--radius);padding:20px 8px;}
+  .stat b{display:block;font-size:1.5rem;color:#ffe9a8;}
+  .stat span{font-size:.78rem;letter-spacing:.5px;}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+  .obj-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;list-style:none;}
+  @media(max-width:700px){.obj-list{grid-template-columns:1fr;}}
+  .obj-list li{background:#fff;border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:.95rem;color:var(--ink);}
+  .obj-list li::before{content:"✔ ";color:var(--primary);font-weight:700;}
+
+  .member-card{background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:34px;}
+  .member-card h4{color:#ffe9a8;font-size:1.3rem;margin-bottom:12px;}
+  .member-card ol{margin:14px 0 22px 20px;}
+  .member-card li{margin-bottom:8px;font-size:.95rem;color:#dcebe3;}
+  .fee-note{background:rgba(255,255,255,.08);border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;font-size:.88rem;color:#ffe9a8;line-height:1.9;}
+
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:600px){form .row{grid-template-columns:1fr;}}
+  form input,form select,form textarea{width:100%;padding:12px 14px;border:1px solid #cdd8d2;border-radius:10px;font-size:.93rem;margin-bottom:14px;font-family:inherit;}
+  form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--primary);border-color:transparent;}
+  form button{background:var(--accent);color:#3a2e05;border:0;padding:13px 28px;border-radius:999px;font-weight:700;font-size:.95rem;cursor:pointer;}
+  form button:hover{opacity:.9;}
+
+  .leader{text-align:center;}
+  .leader .avatar{width:84px;height:84px;border-radius:50%;background:var(--primary);color:#ffe9a8;display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:700;margin:0 auto 14px;}
+  .leader h4{color:var(--primary-dark);font-size:1.02rem;}
+  .leader span{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .leader p{color:var(--muted);font-size:.86rem;margin-top:8px;}
+
+  .coord-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  .coord-table th{background:var(--primary-dark);color:#ffe9a8;padding:13px 16px;text-align:left;font-size:.85rem;letter-spacing:.5px;}
+  .coord-table td{padding:11px 16px;border-bottom:1px solid #e8eeea;font-size:.92rem;}
+  .coord-table tr:nth-child(even){background:#f4f8f6;}
+  .coord-table tr:hover{background:#eaf3ee;}
+  .city-pill{display:inline-block;background:var(--primary);color:#fff;border-radius:999px;padding:2px 12px;font-size:.76rem;}
+
+  .event{display:flex;gap:18px;background:#fff;border-radius:var(--radius);padding:20px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:16px;align-items:center;}
+  .event .date{background:var(--primary);color:#fff;border-radius:10px;text-align:center;padding:10px 14px;flex-shrink:0;}
+  .event .date b{display:block;font-size:1.3rem;color:#ffe9a8;line-height:1;}
+  .event .date span{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;}
+  .event h4{color:var(--primary-dark);font-size:1.02rem;}
+  .event p{color:var(--muted);font-size:.88rem;}
+
+  .fin-card{background:#fff;border:1px solid #e5ece8;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center;}
+  .fin-card b{display:block;font-size:1.7rem;color:var(--primary);}
+  .fin-card span{color:var(--muted);font-size:.85rem;}
+  .fin-note{margin-top:22px;text-align:center;color:var(--muted);font-size:.85rem;}
+
+  .contact-info{background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:34px;height:100%;}
+  .contact-info h4{color:#ffe9a8;margin-bottom:16px;}
+  .contact-info p{margin-bottom:14px;font-size:.94rem;color:#dcebe3;}
+  .contact-info strong{color:#fff;}
+
+  footer{background:#081f15;color:#b9cec4;padding:44px 0 20px;font-size:.88rem;}
+  footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;}
+  @media(max-width:800px){footer .cols{grid-template-columns:1fr;}}
+  footer h5{color:#fff;margin-bottom:12px;font-size:.95rem;}
+  footer a{color:#ffe9a8;text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:7px;}
+  .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;text-align:center;font-size:.8rem;color:#8aa698;}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div>✉ <a href="mailto:info@occ-ksa.org">info@occ-ksa.org</a> &nbsp;|&nbsp; ☎ Emergency Helpline: <a href="tel:+966500000000">+966 5X XXX XXXX</a></div>
+    <div>Est. May 2023 &nbsp;|&nbsp; <span style="color:#ffe9a8;">سیلف ہیلپنگ بیسڈ — خود انصافی، خود مدد</span></div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container nav-wrap">
+    <a href="#home" class="brand">
+      <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="OCC emblem">
+        <circle cx="32" cy="32" r="30" fill="#0b5d3b"/>
+        <circle cx="32" cy="32" r="24" fill="none" stroke="#c9a227" stroke-width="2"/>
+        <path d="M14 40 L26 22 L32 32 L38 20 L50 40 Z" fill="#c9a227"/>
+        <rect x="26" y="42" width="12" height="3" rx="1.5" fill="#ffffff"/>
+      </svg>
+      <div class="brand-text">
+        <h1>Overseas Chitrali's Community</h1>
+        <span>Self Helping Based &nbsp;•&nbsp; Kingdom of Saudi Arabia</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.getElementById('navlist').classList.toggle('open')">☰ Menu</button>
+    <nav>
+      <ul id="navlist">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#welfare">Welfare Funds</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#leadership">Cabinet</a></li>
+        <li><a href="#coordinators">Coordinators</a></li>
+        <li><a href="#transparency">Accounts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container">
+    <span class="badge">Established May 2023 • Kingdom of Saudi Arabia</span>
+    <h2>One Community. One Family.<br>Self-Help &amp; Dignity in the Kingdom.</h2>
+    <p><strong>Overseas Chitrali's Community (OCC)</strong> is a self-help based welfare organization uniting the Chitrali diaspora across Saudi Arabia — from Riyadh to Jeddah, Dammam to Abha and beyond. Through our structured funds (Death, Operation, Injury, Deportation &amp; Emergency Relief) and a city-wise coordinator network, no Chitrali brother faces hardship alone.</p>
+    <a href="#membership" class="btn btn-gold">Become a Member</a>
+    <a href="#welfare" class="btn btn-outline">Our Welfare Funds</a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container grid-2">
+    <div class="about-text">
+      <div class="sec-title" style="text-align:left;">
+        <span class="kicker">Who We Are</span>
+        <h3>About Our Community</h3>
+        <div class="rule" style="margin-left:0;"></div>
+      </div>
+      <p>Founded in <strong>May 2023</strong>, Overseas Chitrali's Community (OCC) was established by Chitrali expatriates in the Kingdom of Saudi Arabia with a single resolve: <strong>every Chitrali in KSA is our responsibility.</strong> Within the first year, <strong>476 members</strong> from more than 20 cities registered — workers, drivers, technicians, engineers, doctors and businessmen — all contributing to one shared welfare system.</p>
+      <p>OCC is run on a <strong>"Self Helping Based"</strong> model: every member contributes small, fixed amounts to dedicated funds. When a brother is deported, hospitalized, operated on, injured at work, passes away, or exits the Kingdom, the community responds immediately — financially and physically — through its city coordinators.</p>
+      <p>Governed by an elected <strong>Cabinet, Shura (Advisory Council) and Controller</strong>, with accounts reported to every member, OCC is non-political, non-profit, and fully voluntary.</p>
+      <div class="stats">
+        <div class="stat"><b>476+</b><span>Registered Members (2023)</span></div>
+        <div class="stat"><b>26</b><span>City Coordinators</span></div>
+        <div class="stat"><b>SAR 126K+</b><span>Welfare Collection</span></div>
+        <div class="stat"><b>20+</b><span>Cities Across KSA</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:18px;">
+        <div class="icon">🎯</div>
+        <h4>Our Mission</h4>
+        <p>To protect every Chitrali member of the community in the Kingdom of Saudi Arabia — in life, in illness, in deportation, and in death — through a transparent, member-funded, self-help welfare system.</p>
+      </div>
+      <div class="card" style="margin-bottom:18px;">
+        <div class="icon">🔭</div>
+        <h4>Our Vision</h4>
+        <p>A united, self-reliant Chitrali diaspora in the Kingdom, where no family — in KSA or back home in Chitral — is left without support in its hour of need.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h4>Our Values</h4>
+        <p>Unity (Ittihad) • Sincerity (Ikhlas) • Transparency (Shafafiyat) • Volunteerism • Full respect for the laws and hospitality of the Kingdom of Saudi Arabia and its people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBJECTIVES ============ -->
+<section class="section-alt" id="objectives">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">What We Do</span>
+      <h3>Objectives of the Community</h3>
+      <div class="rule"></div>
+    </div>
+    <ul class="obj-list">
+      <li>Provide immediate financial support from the <strong>Death Fund</strong> to the family of any deceased member, and arrange dignified repatriation to Chitral.</li>
+      <li>Support members undergoing surgery through the <strong>Operation Fund</strong>, and those injured at work through the <strong>Injury Fund</strong>.</li>
+      <li>Assist <strong>deported members</strong> with relief payments and help re-establish their livelihoods.</li>
+      <li>Provide <strong>Final Exit relief</strong> to members leaving the Kingdom permanently.</li>
+      <li>Run an <strong>Emergency Relief Fund</strong> for sudden crises — accidents, detention, hospitalization — and aid un-registered Chitralis in genuine need.</li>
+      <li>Raise <strong>appeal-based donations</strong> (Helping by Appeal) across all member groups for major emergencies beyond fund limits.</li>
+      <li>Guide new arrivals on Iqama, employment, banking and life in the Kingdom, and connect them with their city coordinator.</li>
+      <li>Organize condolence visits (Ta'ziyat) and congratulations (Mubarakbad) for member families across KSA.</li>
+      <li>Collect monthly/yearly contributions transparently through city coordinators and publish audited accounts to all members.</li>
+      <li>Maintain unity of all Chitrali groups and cooperate with the Embassy of Pakistan and Saudi authorities whenever required.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ WELFARE FUNDS ============ -->
+<section id="welfare">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">Our Safety Net</span>
+      <h3>Welfare Funds &amp; Relief Programs</h3>
+      <div class="rule"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">🕌</div>
+        <h4>Death Fund — 100 SR</h4>
+        <p>Every member contributes <strong>100 SAR</strong> to the Death Fund. In the event of a member's death, the fund provides immediate support to the grieving family and coordinates full repatriation of the deceased to Chitral — documentation, ticketing and escort.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏥</div>
+        <h4>Operation Fund — 15 SR</h4>
+        <p>A dedicated fund for members undergoing surgery or major medical procedures, ensuring no brother delays an operation due to money.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🩹</div>
+        <h4>Injury Fund — 15 SR</h4>
+        <p>Immediate relief for members injured at work or in accidents — covering initial medical costs until other support arrives.</p>
+      </div>
+      <div class="card">
+        <div class="icon">✈️</div>
+        <h4>Deported Members Fund — 5 SR</h4>
+        <p>Supports members who face deportation with relief payments and reintegration assistance for them and their families back home.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚪</div>
+        <h4>Final Exit Relief</h4>
+        <p>Financial assistance for members leaving the Kingdom permanently — because we take care of our brothers until the last airport goodbye.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚨</div>
+        <h4>Emergency Relief &amp; Appeals</h4>
+        <p>For crises beyond the funds — accidents, detention, disasters — the community launches appeal-based collections across all member groups. In 2023 alone, SAR 58,840 was distributed in emergency relief and SAR 58,550 through appeals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP ============ -->
+<section class="section-alt" id="membership">
+  <div class="container grid-2" style="align-items:start;">
+    <div class="member-card">
+      <h4>Join the Community</h4>
+      <p style="color:#dcebe3;font-size:.94rem;">Membership is open to every Chitrali legally residing in the Kingdom of Saudi Arabia. Registration numbers are issued sequentially (A01, A02… / B477…).</p>
+      <ol>
+        <li>Contact the coordinator of your city (see the Coordinators section).</li>
+        <li>Submit your registration with photograph and basic details.</li>
+        <li>Pay the one-time registration fee and fund contributions.</li>
+        <li>Receive your OCC ID Card and be added to your city group.</li>
+      </ol>
+      <div class="fee-note">
+        <strong>One-Time Registration:</strong> SAR 50 &nbsp;|&nbsp; <strong>OCC ID Card:</strong> SAR 10<br>
+        <strong>Yearly Payment:</strong> SAR 100 (payable in monthly installments of SAR 50/100 via your coordinator)<br>
+        <strong>Welfare Funds:</strong> Death Fund SAR 100 • Operation SAR 15 • Injury SAR 15 • Deport Fund SAR 5
+      </div>
+      <p style="margin-top:18px;color:#dcebe3;font-size:.88rem;">📱 Members join their city WhatsApp group after registration, coordinated monthly by the city coordinator.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--primary-dark);margin-bottom:16px;">Membership Application</h4>
+      <form onsubmit="event.preventDefault();alert('Thank you! Your application has been received. Your city coordinator will contact you soon, In Sha Allah.');">
+        <div class="row">
+          <input type="text" placeholder="Full Name" required>
+          <input type="text" placeholder="Father's Name" required>
+        </div>
+        <div class="row">
+          <input type="tel" placeholder="Mobile Number (KSA)" required>
+          <input type="email" placeholder="Email (optional)">
+        </div>
+        <div class="row">
+          <select required>
+            <option value="">City in KSA</option>
+            <option>Riyadh</option><option>Jeddah</option><option>Dammam</option><option>Khobar / Jubail</option>
+            <option>Makkah</option><option>Madinah</option><option>Abha / Khamis Mushait</option><option>Tabuk</option>
+            <option>Hail</option><option>Taif</option><option>Jazan</option><option>Al Hasa / Hofuf</option>
+            <option>Al Kharj</option><option>Najran</option><option>Yanbu</option><option>Al Qassim</option>
+            <option>Al Qunfudhah</option><option>Other</option>
+          </select>
+          <select required>
+            <option value="">Area / Tehsil in Chitral</option>
+            <option>Chitral Town</option><option>Drosh</option><option>Ayun</option><option>Mastuj</option>
+            <option>Garam Chashma</option><option>Laspur</option><option>Shagram</option><option>Other</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="Profession / Occupation">
+          <input type="text" placeholder="Iqama Number (kept confidential)">
+        </div>
+        <textarea rows="3" placeholder="How can you contribute to the community?"></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section id="leadership">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">Serving You</span>
+      <h3>Cabinet &amp; Shura (Elected Leadership)</h3>
+      <div class="rule"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card leader">
+        <div class="avatar">HN</div>
+        <h4>Haider Nawaz</h4><span>Chairman</span>
+        <p>S/O Gull Nawaz — Riyadh. Founder and head of the community, guiding its vision and policies.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">MA</div>
+        <h4>Muhammad Aziz</h4><span>President</span>
+        <p>S/O Zanoyar Khan — Abha. Leads day-to-day community affairs and member welfare.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">RS</div>
+        <h4>Rustam Shah</h4><span>Vice President</span>
+        <p>S/O Narsruk — Dammam / Al Hasa. Supports the President and oversees the Eastern Province.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">AM</div>
+        <h4>Abdul Majeed</h4><span>General Secretary</span>
+        <p>S/O Durani Khan. Membership records, correspondence, and minutes of meetings.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">MU</div>
+        <h4>Misabah Uddin</h4><span>Chief Finance</span>
+        <p>S/O Pahlawan Khan. Heads the community's treasury and fund management.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">RK</div>
+        <h4>Rafi Uddin Khalid</h4><span>Finance Secretary</span>
+        <p>S/O Mohammad Nizam Uddin — Riyadh. Maintains accounts of all collections and relief payments.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">MR</div>
+        <h4>Mukhtar Ur Rahman</h4><span>Development Secretary</span>
+        <p>S/O Fazlu Rahman — Yanbu. Leads community development and improvement initiatives.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">AM</div>
+        <h4>Ali Murad</h4><span>Jirga Secretary</span>
+        <p>S/O Musharaf — Khamis Mushait. Manages the community's dispute-resolution Jirga.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">AK</div>
+        <h4>Abdul Khaliq</h4><span>Emergency Donation Secretary</span>
+        <p>S/O Abdul Karim — Khamis. Coordinates emergency appeals and relief distributions.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">HS</div>
+        <h4>Hassan Syed</h4><span>Social Media Secretary</span>
+        <p>S/O Haroon Syed — Abha. Manages official groups, announcements and this website.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">SU</div>
+        <h4>Sami Ullah</h4><span>Joint Secretary</span>
+        <p>S/O Muhammad Nadr Jhang — Khamis. Assists the General Secretary in administration.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">MUR</div>
+        <h4>Mujeeb Ur Rehman</h4><span>All Groups Admin</span>
+        <p>S/O Fazlurahman — Jeddah. Administers all official OCC member groups across KSA.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">TU</div>
+        <h4>Taj Uddin</h4><span>Chief of Coordinators</span>
+        <p>S/O Habib Nadar — Abha. Heads the network of 26 city coordinators.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">NH</div>
+        <h4>Nauman Ul Haq</h4><span>Controller</span>
+        <p>S/O Haji Abdul Haq — Riyadh. Independently audits all community funds and transactions.</p>
+      </div>
+      <div class="card leader">
+        <div class="avatar">S</div>
+        <h4>Shura Members</h4><span>Advisory Council</span>
+        <p>Siyana Khan (Riyadh) • Noor Arab Khan (Riyadh) • Muhammad Moin Uddin (Al Khobar) • Hussain Ali Shah (Jeddah)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COORDINATORS ============ -->
+<section class="section-alt" id="coordinators">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">Our Network</span>
+      <h3>City Coordinators</h3>
+      <div class="rule"></div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:12px;">26 coordinators collect monthly contributions city-wise and are the first point of contact for every member.</p>
+    </div>
+    <table class="coord-table">
+      <thead><tr><th>Coordinator</th><th>City / Region</th><th>Coordinator</th><th>City / Region</th></tr></thead>
+      <tbody>
+        <tr><td>Jahangir Khan</td><td><span class="city-pill">Khamis / Abha</span></td><td>Hafiz Ullah</td><td><span class="city-pill">Jazan</span></td></tr>
+        <tr><td>Abdul Khaliq</td><td><span class="city-pill">Khamis</span></td><td>Sher Wazir</td><td><span class="city-pill">Dammam</span></td></tr>
+        <tr><td>Abdul Manan</td><td><span class="city-pill">Jeddah</span></td><td>Misbah Uddin</td><td><span class="city-pill">Dammam</span></td></tr>
+        <tr><td>Qamar Uddin</td><td><span class="city-pill">Tabuk</span></td><td>Inayat Ullah</td><td><span class="city-pill">Al Kharj</span></td></tr>
+        <tr><td>Didar Ishaq</td><td><span class="city-pill">Riyadh</span></td><td>Jamil Ul Rehman</td><td><span class="city-pill">Khamis</span></td></tr>
+        <tr><td>Riaz Uddin Molana</td><td><span class="city-pill">Makkah</span></td><td>Rustam Shah</td><td><span class="city-pill">Al Hasa</span></td></tr>
+        <tr><td>Mumtaz Uddin</td><td><span class="city-pill">Riyadh</span></td><td>Haider Wali Taj</td><td><span class="city-pill">Riyadh</span></td></tr>
+        <tr><td>Imran Ali</td><td><span class="city-pill">Dammam</span></td><td>Abdul Majeed</td><td><span class="city-pill">Riyadh</span></td></tr>
+        <tr><td>Amjad Ali</td><td><span class="city-pill">Makkah</span></td><td>Qazi Qasim Ullah</td><td><span class="city-pill">Riyadh</span></td></tr>
+        <tr><td>Dildar Hussain</td><td><span class="city-pill">Riyadh</span></td><td>Nizam Uddin</td><td><span class="city-pill">Al Qunfudhah</span></td></tr>
+        <tr><td>Noor Wali</td><td><span class="city-pill">Al Qunfudhah</span></td><td>Zafar Zafeef</td><td><span class="city-pill">Al Qunfudhah</span></td></tr>
+        <tr><td>Ahmad Qadir</td><td><span class="city-pill">Riyadh</span></td><td>Qayoum Ali</td><td><span class="city-pill">Madinah</span></td></tr>
+        <tr><td>Saeed Wali</td><td><span class="city-pill">Jeddah</span></td><td>Hidayat Ullah</td><td><span class="city-pill">Taif</span></td></tr>
+        <tr><td>Hashim Hussain</td><td><span class="city-pill">Riyadh</span></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TRANSPARENCY ============ -->
+<section id="transparency">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">Open Books, Open Hearts</span>
+      <h3>Transparency &amp; Accounts</h3>
+      <div class="rule"></div>
+    </div>
+    <div class="grid-3" style="grid-template-columns:repeat(4,1fr);">
+      <div class="fin-card"><b>SAR 60,730</b><span>2023 Total Receipts (Reg. 23,750 + Yearly 32,880 + Emergency 2,450 + Dues 1,650)</span></div>
+      <div class="fin-card"><b>SAR 126,845</b><span>Grand Total Welfare Collection</span></div>
+      <div class="fin-card"><b>SAR 117,640</b><span>Relief Distributed (2023–2025): Emergency 58,840 • Appeals 58,550 • Misc 250</span></div>
+      <div class="fin-card"><b>476</b><span>Members Registered in 2023 (439 Active • 8 Deported • 24 Terminated • 5 Final Exit)</span></div>
+    </div>
+    <p class="fin-note">📊 Full annual reports are shared with all members in the general body meeting. Fund-wise budgets (Registration, OCC Card, Injury, Operation, Deported, Death) are maintained separately and audited by the Controller. To verify any figure, contact the Finance Secretary.</p>
+  </div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section class="section-alt" id="events">
+  <div class="container">
+    <div class="sec-title">
+      <span class="kicker">Stay Connected</span>
+      <h3>Events &amp; Gatherings</h3>
+      <div class="rule"></div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:12px;">Event dates are announced through the General Secretary and city coordinators.</p>
+    </div>
+    <div class="event">
+      <div class="date"><b>—</b><span>TBD</span></div>
+      <div><h4>Annual General Meeting &amp; Cabinet Elections</h4>
+      <p>Presentation of the annual audited report, fund status, and election of office bearers. All registered members are invited.</p></div>
+    </div>
+    <div class="event">
+      <div class="date"><b>—</b><span>TBD</span></div>
+      <div><h4>Death Fund &amp; Welfare Fund Awareness Drive</h4>
+      <p>City-wise sessions explaining the fund system, contribution schedules, and how families claim support.</p></div>
+    </div>
+    <div class="event">
+      <div class="date"><b>—</b><span>TBD</span></div>
+      <div><h4>Community Get-Together &amp; Fundraising Dinner</h4>
+      <p>Strengthening brotherhood across cities; proceeds go directly to the welfare funds.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container grid-2" style="align-items:start;">
+    <div class="contact-info">
+      <h4>Contact Us</h4>
+      <p><strong>Chairman:</strong><br>Haider Nawaz — Riyadh (contact via official OCC groups)</p>
+      <p><strong>President:</strong><br>Muhammad Aziz — Abha</p>
+      <p><strong>General Secretary:</strong><br>Abdul Majeed</p>
+      <p><strong>Chief of Coordinators:</strong><br>Taj Uddin — Abha</p>
+      <p><strong>Emergency Helpline:</strong><br><a href="tel:+966500000000" style="color:#ffe9a8;">+966 5X XXX XXXX</a> <em>(to be updated by the Cabinet)</em></p>
+      <p><strong>Email:</strong><br><a href="mailto:info@occ-ksa.org" style="color:#ffe9a8;">info@occ-ksa.org</a> <em>(to be confirmed)</em></p>
+      <p><strong>Chapters:</strong><br>Riyadh • Jeddah • Dammam • Makkah • Madinah • Abha/Khamis • Tabuk • Hail • Taif • Jazan • Al Hasa • Al Kharj • Najran • Yanbu • Al Qunfudhah • + more</p>
+      <p style="font-size:.82rem;color:#9fbdae;">🔒 Member CNIC/Iqama numbers and personal phone numbers are kept strictly confidential in the official register and are never published.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--primary-dark);margin-bottom:16px;">Send a Message</h4>
+      <form onsubmit="event.preventDefault();alert('Your message has been sent. Jazakumullah Khairan.');">
+        <div class="row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Mobile Number" required>
+        </div>
+        <select required>
+          <option value="">Subject</option>
+          <option>Membership Inquiry</option><option>Welfare / Emergency Support</option>
+          <option>Contribution / Dues</option><option>Donation</option><option>Volunteer</option><option>Other</option>
+        </select>
+        <textarea rows="5" placeholder="Your message…" required></textarea>
+        <button type="submit" style="background:var(--primary);color:#fff;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h5>Overseas Chitrali's Community — KSA</h5>
+        <p>A non-profit, non-political, self-help based welfare organization of the Chitrali diaspora in the Kingdom of Saudi Arabia, established May 2023. Every riyal of the welfare funds is accounted for, audited by the Controller, and reported to all members.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#welfare">Welfare Funds</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#leadership">Cabinet &amp; Shura</a></li>
+          <li><a href="#coordinators">Coordinators</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Transparency</h5>
+        <ul>
+          <li><a href="#transparency">Annual Accounts</a></li>
+          <li><a href="#">Constitution &amp; By-Laws</a></li>
+          <li><a href="#">Fund Claim Procedure</a></li>
+          <li><a href="#">Privacy of Member Data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 Overseas Chitrali's Community (OCC), Kingdom of Saudi Arabia. All rights reserved. &nbsp;|&nbsp; We respect and abide by the laws and traditions of the Kingdom of Saudi Arabia and its generous people. &nbsp;|&nbsp; "سیلف ہیلپنگ بیسڈ"
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
